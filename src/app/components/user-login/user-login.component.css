@@ -1,0 +1,14 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+.space{
+  flex: 1 1 auto;
+}
+.abc {
+  align: center;
+}

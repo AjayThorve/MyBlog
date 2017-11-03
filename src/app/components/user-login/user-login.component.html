@@ -1,0 +1,37 @@
+
+<mat-toolbar color="primary">
+  <mat-icon>home</mat-icon>
+  <span>Welcome to the blog application</span>
+  <span class="space"></span>
+  <button *ngIf="(authService.user | async)" mat-raised-button color="accent">
+    Menu
+  </button>
+  <button *ngIf="(authService.user | async)" mat-raised-button (click)="logout()" color="accent">logout</button>
+</mat-toolbar>
+
+<br>
+
+<mat-card *ngIf="!(authService.user | async)" >
+  <mat-card-title>
+    Login
+  </mat-card-title>
+  <mat-card-content >
+    <div class="login-container" layout-align="center center">
+
+      <mat-form-field>
+        <input matInput [(ngModel)]="email" placeholder="Enter username">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [(ngModel)]="password" type="password" placeholder="Enter Password">
+      </mat-form-field>
+
+    </div>
+    <button mat-raised-button (click)="login()" color="primary">Login</button>
+    <button mat-raised-button (click)="signup()" color="primary">Signup</button>
+    <button mat-raised-button (click)="Gsignin()" >
+      <mat-icon style="color: red" >Google</mat-icon> Sign in</button>
+  </mat-card-content>
+
+</mat-card>
+

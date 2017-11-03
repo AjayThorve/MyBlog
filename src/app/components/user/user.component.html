@@ -1,0 +1,12 @@
+<div *ngIf="authService.user | async">
+<h1>Welcome {{ (authService.user | async)?.email }}!</h1>
+
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.name}}
+    {{item.type}}
+  </li>
+</ul>
+
+</div>
+
