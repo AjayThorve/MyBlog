@@ -1,0 +1,11 @@
+<mat-card class="example-container">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Title" [(ngModel)]="art.title"
+      name="title"/>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Enter content" [(ngModel)]="art.content"
+      name="content"></textarea>
+    </mat-form-field>
+    <button (click)="onSubmit()" mat-raised-button color="accent">Save</button>
+</mat-card>

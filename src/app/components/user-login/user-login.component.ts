@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../Services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -10,7 +11,7 @@ export class UserLoginComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,12 +21,29 @@ export class UserLoginComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.email, this.password);
+    this.authService.login(this.email, this.password).then(
+      (value) => {
+        console.log(value);
+        if(value == 'success'){
+          console.log('reached here');
+          this.router.navigateByUrl('/dashboard');
+        }
+      }
+    );
     this.email = this.password = '';
   }
 
   Gsignin() {
-    this.authService.Gsignin();
+    this.authService.Gsignin().then(
+      (value) => {
+        console.log(value);
+        if(value == 'success'){
+          console.log('reached here');
+          this.router.navigateByUrl('/dashboard');
+        }
+      }
+    );
+
     this.email = this.password = '';
   }
 

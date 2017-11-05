@@ -1,5 +1,12 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<app-user-login></app-user-login>
-<app-user></app-user>
+<mat-toolbar color="primary">
+  <mat-icon>home</mat-icon>
+  <span>Welcome to the blog application</span>
+  <span class="space"></span>
+  <button *ngIf="(authService.user | async)" mat-raised-button color="accent">
+    Menu
+  </button>
+  <button *ngIf="(authService.user | async)" mat-raised-button (click)="logout()" color="accent">logout</button>
+</mat-toolbar>
 
+<router-outlet></router-outlet>
 

@@ -1,12 +1,14 @@
-<div *ngIf="authService.user | async">
-<h1>Welcome {{ (authService.user | async)?.email }}!</h1>
-
-<ul>
-  <li class="text" *ngFor="let item of items | async">
-    {{item.name}}
-    {{item.type}}
-  </li>
-</ul>
-
+<div>
+<h1>Welcome {{ displayName }}!</h1>
 </div>
 
+<mat-tab-group [selectedIndex]="1">
+    <mat-tab label="Add" >
+      <app-add-blog></app-add-blog>
+    </mat-tab>
+  <mat-tab label="View" >
+      <app-view-blog></app-view-blog>
+    </mat-tab>
+
+
+</mat-tab-group>

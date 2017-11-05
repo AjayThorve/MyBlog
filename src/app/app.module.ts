@@ -11,13 +11,21 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import {MatInputModule,
-        MatFormFieldModule,
-        MatToolbarModule,
-        MatIconModule,
-  MatCardModule
-        } from '@angular/material';
+import {
+  MatButtonModule, MatCheckboxModule, MatListModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatCardModule,
+  MatTabsModule, MatButtonToggleModule
+} from '@angular/material';
+
+import {routing} from './app.routing';
+import { AddBlogComponent } from './components/blogs/add-blog/add-blog.component';
+import { ViewBlogComponent } from './components/blogs/view-blog/view-blog.component';
+import { BlogComponent } from './components/blogs/blog/blog.component';
+import {ArticleService} from './Services/article.service';
 
 
 
@@ -25,10 +33,14 @@ import {MatInputModule,
   declarations: [
     AppComponent,
     UserComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    AddBlogComponent,
+    ViewBlogComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
+    routing,
     AngularFireModule.initializeApp(environment.firebase, 'BlogApplication'),
     FormsModule,
     HttpModule,
@@ -41,9 +53,12 @@ import {MatInputModule,
     MatToolbarModule,
     MatFormFieldModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule,
+    MatListModule,
+    MatButtonToggleModule
   ],
-  providers: [ AuthService ],
+  providers: [ AuthService, ArticleService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
